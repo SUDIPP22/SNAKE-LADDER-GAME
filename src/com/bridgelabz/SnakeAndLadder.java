@@ -11,8 +11,10 @@ public class SnakeAndLadder {
     }
 
     public static void checkWinner() {
+        int numOfDieRoll = 0;                              // input variable for counting die rolling
         while (PLAYER_POSITION < WINNING_POSITION) {
             int dieRoll = (int) (Math.random() * 6 + 1);   // For Generating 1 to 6 Number Randomly
+            numOfDieRoll++;                                // method for counting die rolling
             System.out.println("\n<---->After Die Roll You get Number : " + dieRoll);
 
             int optionCheck = (int) (Math.random() * 3);    // To check for options
@@ -32,8 +34,7 @@ public class SnakeAndLadder {
                     System.out.println("You got Ladder" + " /-/ ");
                     if (forExactWin > 100) {                           // condition for exact winning position
                         PLAYER_POSITION = PLAYER_POSITION;
-                    }
-                    else
+                    } else
                         PLAYER_POSITION += dieRoll;
                     break;
                 case 2:
@@ -46,8 +47,9 @@ public class SnakeAndLadder {
                     }
                     break;
             }
-            System.out.println("your position is :" + PLAYER_POSITION);
+            System.out.println("your position is :" + PLAYER_POSITION);  // to check the position of every die roll
         }
-        System.out.println("you win the game  :) :)");
+        System.out.println("\nNumber of times the dice was played to win the game is : " + numOfDieRoll);
+        System.out.println("\nYou win the game  :) :)");
     }
 }
