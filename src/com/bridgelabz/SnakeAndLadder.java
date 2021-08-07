@@ -13,14 +13,25 @@ public class SnakeAndLadder {
         int NO_PLAY = 0;
         int LADDER = 1;
         int SNAKE = 2;
+        int newPlayerPosition;
         int optionCheck = (int) (Math.random() * 3);    // To check for options
 
         // Condition checking
-        if (optionCheck == NO_PLAY) {
-            System.out.println("You stays in " + playerPosition + " position ");
-        } else if (optionCheck == LADDER) {
-            System.out.println("You get the Ladder and moves ahead by " + dieRoll + " steps");
-        } else
-            System.out.println("You get the Snake and moves behind by " + dieRoll + " steps");
+
+        switch (optionCheck) {
+            case 0:
+                System.out.println("You stays in " + playerPosition + " position ");
+                break;
+            case 1:
+                System.out.println("You get the Ladder and moves ahead by " + dieRoll + " steps");
+                newPlayerPosition = playerPosition + dieRoll;
+                System.out.println("Now your position is : " + newPlayerPosition);
+                break;
+            case 2:
+                System.out.println("You get the Snake and moves behind by " + dieRoll + " steps");
+                newPlayerPosition = playerPosition - dieRoll;
+                System.out.println("Now your position is : " + newPlayerPosition);
+                break;
+        }
     }
 }
