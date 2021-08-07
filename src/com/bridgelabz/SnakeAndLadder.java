@@ -21,16 +21,20 @@ public class SnakeAndLadder {
             int noPlay = 0;
             int ladder = 1;
             int snake = 2;
+            int forExactWin = PLAYER_POSITION + dieRoll;
 
             // Condition checking
             switch (optionCheck) {
                 case 0:
                     System.out.println("It is a No-Play " + " :(  " + ":("); // PLAYER_POSITION IS 0
-
                     break;
                 case 1:
                     System.out.println("You got Ladder" + " /-/ ");
-                    PLAYER_POSITION += dieRoll;
+                    if (forExactWin > 100) {                           // condition for exact winning position
+                        PLAYER_POSITION = PLAYER_POSITION;
+                    }
+                    else
+                        PLAYER_POSITION += dieRoll;
                     break;
                 case 2:
                     System.out.println("You got Snake " + " $$ ");
